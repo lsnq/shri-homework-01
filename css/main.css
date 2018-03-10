@@ -1,0 +1,226 @@
+@import './fonts/fonts.css';
+
+body {
+  font-family: 'YS Text', 'Helvetica', Arial, sans-serif;
+  font-size: calc(12px + 0.2vw);
+  min-width: 320px;
+}
+.content {
+  display: grid;
+  grid-template-areas:
+      'head'
+      'main';
+  grid-template-rows: 30px 1fr;
+  grid-row-gap: 43px;
+  padding: 2em calc(15px + 1vw);
+
+}
+
+header {
+  grid-template: 'head';
+}
+
+.logo {
+  width: 91px;
+  height:29px;
+  background: url(../img/zen_logo@3x.png) no-repeat 50% 50%;
+  background-size: 100%;
+}
+
+main {
+  display: grid;
+  grid-column-gap: calc(10px + 1vw);
+  grid-row-gap: 5vw;
+  background-color: #fff;
+  color: #444;
+  max-width: 1920px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(1,1fr);
+  grid-template: 'main';
+}
+
+.card {
+    display: grid;
+    grid-row-gap: 1em;
+    grid-column-gap: 3vw;
+    grid-template-areas: 'heading' 'image' 'description' 'tools';
+  }
+
+  .card__no-description, .card__no-image {
+    grid-template-rows: auto minmax(120px, 1fr);
+  }
+  .card__no-image {
+    grid-template-areas: 'heading' 'description' 'tools';
+  }
+  .card__no-description {
+    grid-template-areas: 'heading' 'image';
+  }
+  .card .heading {
+    font-weight: 700;
+    font-size: 1.4em;
+    line-height: 1.35;
+    grid-area: heading;
+  }
+
+  .card .description {
+    line-height: 1.45;
+    grid-area: description;
+    max-height: 9.8em;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+  .card .image {
+    grid-area: image;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .card .image img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  .image__holder {
+    position: relative;
+  }
+
+  .card__size-m .description {
+    max-height: 4.35em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card .tools {
+    grid-area: tools;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .card .tools span {
+    display: block;
+    width:20px;
+    height: 20px;
+    background: transparent no-repeat 50% 50%;
+    background-size: 100%;
+    border-radius: 5px;
+  }
+  .card .tools span.tools__more {
+    background-image: url('../img/icon-more.svg') ;
+  }
+  .card .tools span.tools__heart {
+    background-image: url('../img/icon-heart.svg');
+  }
+  .card__channel-name {
+    font-weight: 700;
+    flex: 1;
+  }
+  .card__channel-name + .tools__more + .tools__heart {
+    margin-left: 1em;
+  }
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 15px;
+  }
+  main {
+    grid-row-gap: 2.5em;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  main {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (min-width: 620px) {
+  main {
+    grid-template-columns: repeat(6,1fr);
+  }
+  .card {
+    grid-template-rows: auto minmax(182px, 1fr);
+  }
+  .card__no-description {
+    grid-template-areas: 'image' 'heading';
+    grid-template-rows: max-content;
+  }
+  .card__no-image {
+    grid-template-rows: max-content;
+  }
+  .card .image .tools {
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+  }
+
+  .card__no-description .tools {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: flex-end;
+  }
+  .card__size-m {
+    grid-column-end: span 3;
+    grid-template-areas:
+      'heading heading'
+      'image image'
+      'description tools';
+  }
+
+  .card__size-s {
+    grid-column-end: span 2;
+  }
+
+  .card__size-m .tools {
+    flex-direction: column;
+  }
+
+  .card__size-l {
+    grid-column: 1/-1;
+    grid-template-areas:
+        'image heading'
+        'image description'
+        'image tools';
+    grid-template-columns: 2fr .95fr;
+    grid-template-rows: max-content min-content auto;
+  }
+  .card__size-l .image {
+    grid-row: 1/-1;
+  }
+  .card__size-s .heading {
+    font-size: 1.15em;
+  }
+  .card__size-l .heading {
+    font-size: 1.65em;
+  }
+
+
+}
+
+@media screen and (min-width: 960px) {
+  header {
+    padding: 0 4em;
+  }
+  main {
+    grid-template-columns: repeat(9,1fr);
+    padding: 2em 4em;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card__size-l {
+    grid-column: span 9;
+    grid-template-columns: 2fr .95fr;
+  }
+
+}
