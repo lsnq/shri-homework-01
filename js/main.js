@@ -149,7 +149,6 @@ const data = [
             channelName.className = 'card__channel-name';
             channelName.textContent = item.channelName;
             card.querySelector('.tools').prepend(channelName);
-            console.log(item.channelName);
         }
 
         wrapper.appendChild(card);
