@@ -149,7 +149,7 @@ main {
     grid-template-rows: auto minmax(182px, 1fr);
   }
   .card__no-description {
-    grid-template-areas: 'image' 'heading';
+    grid-template-areas:  'image' 'heading';
     grid-template-rows: max-content;
   }
   .card__no-image {
@@ -169,6 +169,7 @@ main {
     height: 100%;
     align-items: flex-end;
   }
+
   .card__size-m {
     grid-column-end: span 3;
     grid-template-areas:
@@ -200,6 +201,19 @@ main {
   .card__size-s .heading {
     font-size: 1.15em;
   }
+
+  /* решить иначе проблему заголовков не вышло */
+  .card__size-m .heading {
+    position: relative;
+    height: 1.25em;
+  }
+  .card__size-m .heading span {
+    position: absolute;
+    z-index: 1;
+    background: white;
+    padding-bottom: 0.5em;
+  }
+
   .card__size-l .heading {
     font-size: 1.65em;
   }

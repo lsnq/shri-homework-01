@@ -120,7 +120,7 @@ const data = [
     data.forEach((item) => {
         let card = el.content.cloneNode(true);
         card.querySelector('.card').classList.add('card__size-' + item.size);
-        card.querySelector('.heading').textContent = item.title;
+        card.querySelector('.heading span').textContent = item.title;
         card.querySelector('.heading').style.color = item.titleColor;
 
         if (item.description) {
@@ -128,7 +128,6 @@ const data = [
         } else {
             card.querySelector('.description').remove();
             card.querySelector('.card').classList.add('card__no-description');
-
         }
 
         if (item.image) {
