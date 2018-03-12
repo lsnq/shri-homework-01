@@ -141,7 +141,7 @@ main {
   }
 }
 
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 720px) {
   main {
     grid-template-columns: repeat(6,1fr);
   }
@@ -207,7 +207,7 @@ main {
 
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 1280px) {
   header {
     padding: 0 4em;
   }
@@ -217,7 +217,7 @@ main {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .card__size-l {
     grid-column: span 9;
     grid-template-columns: 2fr .95fr;
